@@ -67,8 +67,8 @@ export default function ItemList() {
       </div>
       {isGrouped ? (
         Object.entries(groupedItems).map(([category, items]) => (
-          <div key={category}>
-            <h3 className="font-bold">{category}</h3>
+          <div key={category} className="flex flex-col gap-2">
+            <h3 className="font-bold capitalize">{category}</h3>
             {items.map((item, index) => (
               <Item
                 key={index}
