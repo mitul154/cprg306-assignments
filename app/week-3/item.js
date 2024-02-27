@@ -1,17 +1,19 @@
-import React from "react";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function Item({ name, quantity, category }) {
   return (
-    <ul>
-      <li>
-        <span className="font-bold">Name:</span> {name}
-      </li>
-      <li>
-        <span className="font-bold">Quantity:</span> {quantity}
-      </li>
-      <li>
-        <span className="font-bold">Category:</span> {category}
-      </li>
-    </ul>
+    <Card className="w-full h-full">
+      <CardHeader>
+        <CardTitle>{name}</CardTitle>
+        <CardDescription>
+          Buy {quantity} in {category}
+        </CardDescription>
+      </CardHeader>
+    </Card>
   );
 }

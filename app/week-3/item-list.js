@@ -77,7 +77,7 @@ export default function ItemList() {
   ];
 
   return (
-    <div>
+    <div className="flex flex-col gap-3 my-2">
       {items.map((val, index) => {
         return (
           <Item
