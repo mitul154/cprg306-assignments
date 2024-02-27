@@ -1,11 +1,12 @@
 "use client";
 
-import items from "./data/items.json";
+import itemsData from "./data/items.json";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Item from "./item";
 
 export default function ItemList() {
+  const [items, setItems] = useState(itemsData);
   const [sortBy, setSortBy] = useState("name");
   const [isGrouped, setIsGrouped] = useState(false);
   const handleSort = (sortBy) => {
@@ -30,13 +31,14 @@ export default function ItemList() {
 
   useEffect(() => {
     if (isGrouped) {
-      items.sort((a, b) => {
-        return ("" + a.category).localeCompare(b.category);
-      });
+      setItems(
+        [...items].sort((a, b) => ("" + a.category).localeCompare(b.category))
+      );
+    } else {
+      setItems(
+        [...items].sort((a, b) => ("" + a[sortBy]).localeCompare(b[sortBy]))
+      );
     }
-    items.sort((a, b) => {
-      return ("" + a[sortBy]).localeCompare(b[sortBy]);
-    });
   }, [sortBy, isGrouped]);
 
   return (
