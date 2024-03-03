@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
-export default function AddItemForm() {
+export default function AddItemForm({ handleAddItem }) {
   const [name, setName] = useState("");
   const [quanitity, setQuantity] = useState(1);
   const [category, setCategory] = useState("Produce");
@@ -16,9 +16,7 @@ export default function AddItemForm() {
       quantity: quanitity,
       category: category,
     };
-
-    console.log(item);
-    alert(`Added ${quanitity} ${name} to the ${category} category`);
+    handleAddItem(item);
     setName("");
     setQuantity(1);
     setCategory("Produce");
