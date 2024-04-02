@@ -28,6 +28,12 @@ export default function Navbar() {
           <li>
             <Link href="/week-7">week-7</Link>
           </li>
+          <li>
+            <Link href="/week-8">week-8</Link>
+          </li>
+          <li>
+            <Link href="/week-10">week-10</Link>
+          </li>
         </ul>
       </nav>
     </>
